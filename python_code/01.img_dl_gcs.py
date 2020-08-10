@@ -38,7 +38,7 @@ def get_image_files(dir_path, keyword_count, image_urls):
             filename_extension_pair = os.path.splitext(image_url)
             extension = filename_extension_pair[1]
             extension = extension if len(extension) <= 4 else extension[0:4]
-            filename = os.path.join(dir_path, f"{keyword_count:02}_{idx+1:03}{extension}")
+            filename = os.path.join(dir_path, f"{keyword_count:02}_{idx+1:03}.jpg")
             print(filename)
             # 이미지 파일 저장
             save_image(filename, image)
@@ -111,7 +111,7 @@ def main():
         # 키워드 표시
         print(f"Keyword=[{keyword}]로 검색한 이미지 파일을 다운로드합니다.")
         # 이밎 URL 취득
-        image_urls = get_image_urls(keyword, 100)
+        image_urls = get_image_urls(keyword, 120)
         # 이미지 파일 다운로드
         get_image_files(ORIGIN_IMAGE_DIR, keyword_count, image_urls)
         # 키워드 카운트 증가

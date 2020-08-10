@@ -34,7 +34,7 @@ def detect_image_face(file_path, image, cascade_filepath):
     cascade = cv2.CascadeClassifier(cascade_filepath) #특징을 찾아내는 필터역할을 함
     print(file_path)
     # 얼굴인식
-    faces = cascade.detectMultiScale(image_gs, scaleFactor=1.1,minNeighbors=15, minSize=(64,64))
+    faces = cascade.detectMultiScale(image_gs, scaleFactor=1.1,minNeighbors=15, minSize=(128,128))
     if len(faces)==0:
         print("얼굴인식 실패")
         return
@@ -48,8 +48,8 @@ def detect_image_face(file_path, image, cascade_filepath):
     face_count = 1
     for (x_pos, y_pos, width, height) in faces:
         face_image = image[y_pos:y_pos+height,x_pos:x_pos+width]  # y,x
-        if face_image.shape[0] >64:
-            face_image = cv2.resize(face_image, (64,64))
+        if face_image.shape[0] >128:
+            face_image = cv2.resize(face_image, (128,128))
         print(face_image.shape)
 
         # 저장
@@ -89,7 +89,7 @@ OUTPUT_IMAGE_DIR = "./face_image"
 def main():
     print("===================================================================")
     print("이미지 얼굴인식 OpenCV 이용")
-    print("지정한 이미지 파일의 정면얼굴을 인식하고, 64x64 사이즈로 변경")
+    print("지정한 이미지 파일의 정면얼굴을 인식하고, 128x128 사이즈로 변경")
     print("===================================================================")
 
     # 디렉토리 작성
