@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
-*.images.zip
+*images/
+*images.zip
 *.env
 __pycache__/
 *.py[cod]
