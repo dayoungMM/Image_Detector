@@ -24,4 +24,13 @@ def read_label(x):
     shutil.move(new_filename,'./labeled/')
 
 
+# 파일에 라벨링 하는게 아니라 폴더에 넣는걸로 구분하고 싶을 때 사용
+def classify_folder(x):
+    if x[1]==1:
+        shutil.move(x[0],'./on/')
+    else:
+        sutil.move(x[0],'./off/')
+    
+
+
 data.apply(read_label, axis=1)
