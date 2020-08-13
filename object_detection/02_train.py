@@ -12,11 +12,13 @@ from sklearn.model_selection import train_test_split
 import pickle
 
 
-def label(x):
+def label(df,x_data,y_data):
     #label data
-    y_data.apend(x[1])
+    y_data.append(df[1])
     #image data
-    image = image = cv2.imread(x[0])
+    image = cv2.imread('./images/'+df[0][2:])
+    print(df[0][2:])
+    print(image)
     # 이미지를 BGR 형식에서 RGB 형식으로 변환
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     # 이미지 배열(RGB 이미지)
@@ -30,8 +32,8 @@ def load_label_images(csv_path):
 
     #x,y 데이터 만들기
     X = []
-    y = []
-    data.apply(label,axis=1)
+    Y = []
+    data.apply(lambda df: label(df,X,Y),axis=1)
 
     return (X, Y)
     
