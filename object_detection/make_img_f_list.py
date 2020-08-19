@@ -16,7 +16,7 @@
 import os
 import pandas as pd
 
-path = './images/20200805_01/'
+path = './images/total_img/'
 folder_name = path.split("/")[2]
 file_list = os.listdir(path)
 file_list_img = [file for file in file_list if file.endswith(".JPG")]
